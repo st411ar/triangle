@@ -13,6 +13,14 @@ class Primes {
 		primes.add(2);
 	}
 
+	public int getMax() {
+		return max;
+	}
+
+	public int getSize() {
+		return primes.size();
+	}
+
 	public void update(int newMax) {
 		if (newMax > max) {
 			for (++max; max <= newMax; max++) {
@@ -25,10 +33,10 @@ class Primes {
 	}
 
 	private boolean isPrime(int number) {
+		int max = (int) Math.sqrt(number);
 		for (int prime : primes) {
-			if (number % prime == 0) {
-				return false;
-			}
+			if (number % prime == 0) return false;
+			if (prime > max) break;
 		}
 		return true;
 	}
