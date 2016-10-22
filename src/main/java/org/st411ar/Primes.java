@@ -7,21 +7,25 @@ class Primes {
 	private int max;
 	private List<Integer> primes;
 
-	public Primes() {
+	Primes() {
 		max = 2;
 		primes = new ArrayList<Integer>();
 		primes.add(2);
 	}
 
-	public int getMax() {
+	int getMax() {
 		return max;
 	}
 
-	public int getSize() {
+	int getSize() {
 		return primes.size();
 	}
 
-	public void update(int newMax) {
+	List<Integer> getNumbers() {
+		return primes;
+	}
+
+	void update(int newMax) {
 		if (newMax > max) {
 			for (++max; max <= newMax; max++) {
 				if (isPrime(max)) {
@@ -35,8 +39,8 @@ class Primes {
 	private boolean isPrime(int number) {
 		int max = (int) Math.sqrt(number);
 		for (int prime : primes) {
-			if (number % prime == 0) return false;
 			if (prime > max) break;
+			if (number % prime == 0) return false;
 		}
 		return true;
 	}
