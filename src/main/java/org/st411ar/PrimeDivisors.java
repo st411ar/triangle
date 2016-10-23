@@ -12,14 +12,13 @@ class PrimeDivisors {
 		this.number = number;
 		primes.update(number);
 		for (int prime : primes.getNumbers()) {
+			int power = 0;
 			while (number % prime == 0) {
-				Integer power = primeDivisors.get(prime);
-				if (power == null) {
-					primeDivisors.put(prime, 1);
-				} else {
-					primeDivisors.put(prime, power + 1);
-				}
+				power++;
 				number /= prime;
+			}
+			if (power > 0) {
+				primeDivisors.put(prime, power);
 			}
 		}
 	}

@@ -3,12 +3,11 @@ package org.st411ar;
 import java.util.Map;
 
 public class App {
-	private static Primes primes = new Primes();
-
     public static void main(String[] args) {
 		long startTime = System.currentTimeMillis();
 
 		int divisorsCountMinimum = 500;
+        Primes primes = new Primes();
 
 		int triangle = 0;
 		for (int i = 1; ; i++) {

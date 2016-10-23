@@ -5,12 +5,12 @@ import java.util.List;
 
 class Primes {
 	private int max;
-	private List<Integer> primes;
+	private List<Integer> numbers;
 
 	Primes() {
 		max = 2;
-		primes = new ArrayList<Integer>();
-		primes.add(2);
+		numbers = new ArrayList<Integer>();
+		numbers.add(2);
 	}
 
 	int getMax() {
@@ -18,18 +18,18 @@ class Primes {
 	}
 
 	int getSize() {
-		return primes.size();
+		return numbers.size();
 	}
 
 	List<Integer> getNumbers() {
-		return primes;
+		return numbers;
 	}
 
 	void update(int newMax) {
 		if (newMax > max) {
 			for (++max; max <= newMax; max++) {
 				if (isPrime(max)) {
-					primes.add(max);
+					numbers.add(max);
 				}
 			}
 			max--;
@@ -37,9 +37,9 @@ class Primes {
 	}
 
 	private boolean isPrime(int number) {
-		int max = (int) Math.sqrt(number);
-		for (int prime : primes) {
-			if (prime > max) break;
+		int stop = (int) Math.sqrt(number);
+		for (int prime : numbers) {
+			if (prime > stop) break;
 			if (number % prime == 0) return false;
 		}
 		return true;
@@ -48,12 +48,12 @@ class Primes {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("primes before ");
+		sb.append("numbers before ");
 		sb.append(max);
 		sb.append(" have size ");
-		sb.append(primes.size());
+		sb.append(numbers.size());
 		sb.append(": ");
-		sb.append(primes.toString());
+		sb.append(numbers.toString());
 		return sb.toString();
 	}
 }
